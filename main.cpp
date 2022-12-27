@@ -76,6 +76,15 @@ int main() {
             ystep = -ystep;
         }
 
+        if (Keyboard::isKeyPressed(Keyboard::A))
+            p1.move(-5, 0);
+        if (Keyboard::isKeyPressed(Keyboard::D))
+            p1.move(5, 0);
+        if (Keyboard::isKeyPressed(Keyboard::W))
+            p1.move(0, -5);
+        if (Keyboard::isKeyPressed(Keyboard::S))
+            p1.move(0, 5);
+
         window.clear();
         window.draw(shape);
         window.draw(p1);
