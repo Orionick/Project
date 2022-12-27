@@ -39,15 +39,15 @@ int main() {
     window.setFramerateLimit(60);
 
     CircleShape shape;
-    shape.setRadius(50.0);
+    shape.setRadius(30.0);
     shape.setFillColor(Color::Yellow);
-    shape.setOrigin(50.0, 50.0);
-    shape.setPosition(window.getSize().x / 2, window.getSize().y / 2);
+    shape.setOrigin(shape.getRadius(), shape.getRadius());
+    shape.setPosition(window.getSize().x / 10, window.getSize().y / 2);
 
-    float xstep = 8, ystep = 4;
+    float xstep = 10, ystep = 9;
 
     RectangleShape p1;
-    p1.setSize(Vector2f(80, 80));
+    p1.setSize(Vector2f(150, 40));
     p1.setPosition(200, 400);
 
     while (window.isOpen() && !Keyboard::isKeyPressed(Keyboard::Escape)) {
@@ -58,13 +58,13 @@ int main() {
 
         shape.move(xstep, ystep);
 
-        if (shape.getPosition().x > window.getSize().x - 50)
+        if (shape.getPosition().x > window.getSize().x - shape.getRadius())
             xstep = -xstep;
-        else if (shape.getPosition().y > window.getSize().y - 50)
+        else if (shape.getPosition().y > window.getSize().y - shape.getRadius())
             ystep = -ystep;
-        else if (shape.getPosition().x < 0 + 50)
+        else if (shape.getPosition().x < shape.getRadius())
             xstep = -xstep;
-        else if (shape.getPosition().y < 0 + 50)
+        else if (shape.getPosition().y < shape.getRadius())
             ystep = -ystep;
 
         if (checkCollision(p1, shape) == 1)
@@ -77,13 +77,9 @@ int main() {
         }
 
         if (Keyboard::isKeyPressed(Keyboard::A))
-            p1.move(-5, 0);
+            p1.move(-15, 0);
         if (Keyboard::isKeyPressed(Keyboard::D))
-            p1.move(5, 0);
-        if (Keyboard::isKeyPressed(Keyboard::W))
-            p1.move(0, -5);
-        if (Keyboard::isKeyPressed(Keyboard::S))
-            p1.move(0, 5);
+            p1.move(15, 0);
 
         window.clear();
         window.draw(shape);
