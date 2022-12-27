@@ -1,24 +1,27 @@
 ﻿#include <SFML/Graphics.hpp>
+#include <iostream>
 
-int main()
-{
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+using namespace std;
+using namespace sf;
 
-    while (window.isOpen())
-    {
-        sf::Event event;
+int main() {
+    RenderWindow window(VideoMode(800, 600), "Project Game");
+    window.setFramerateLimit(60);
+
+    CircleShape shape;
+    shape.setRadius(50.0);
+    shape.setFillColor(Color::Yellow);
+
+    while (window.isOpen() && !Keyboard::isKeyPressed(Keyboard::Escape)) {
+        Event event;
         while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
+            if (event.type == Event::Closed)
                 window.close();
-        }
 
         window.clear();
         window.draw(shape);
         window.display();
     }
-
+    
     return 0;
 }
