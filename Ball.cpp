@@ -1,7 +1,6 @@
 #include "Ball.h"
 
-Ball::Ball(RenderWindow& window, float x, float y, float radius, Color color, float xStep, float yStep) : m_window(window), m_xStep(xStep) {
-    m_yStep = yStep;
+Ball::Ball(RenderWindow& window, float x, float y, float radius, Color color, float xStep, float yStep) : m_window(window), m_xStep(xStep), m_yStep(yStep) {
     setRadius(radius);
     setFillColor(color);
     setOrigin(radius, radius);
