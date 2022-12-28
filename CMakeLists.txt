@@ -35,3 +35,11 @@ target_link_libraries("${PROJECT_NAME}" sfml-graphics-s-d
 						  vorbisfile
 						  vorbis
 						  ogg)
+
+target_link_libraries("${PROJECT_NAME}" debug sfml-graphics-s-d
+										debug sfml-window-s-d
+										debug sfml-system-s-d)
+
+target_link_libraries("${PROJECT_NAME}" optimized sfml-graphics-s-d
+										optimized sfml-window-s-d
+										optimized sfml-system-s-d)
