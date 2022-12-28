@@ -19,16 +19,13 @@ link_directories("ext/SFML/lib/")
 
 add_executable("${PROJECT_NAME}" main.cpp
 		
-      "Ball.h" "Platform.h")
+      "Ball.h" "Platform.h" "Ball.cpp" "Platform.cpp")
 											
-target_link_libraries("${PROJECT_NAME}" sfml-graphics-s-d
-						  sfml-window-s-d
-						  sfml-system-s-d
+target_link_libraries("${PROJECT_NAME}"
 						  opengl32
 						  freetype
 						  winmm
 						  gdi32
-						  sfml-audio-s-d
 						  openal32
 						  flac
 						  vorbisenc
@@ -40,6 +37,6 @@ target_link_libraries("${PROJECT_NAME}" debug sfml-graphics-s-d
 										debug sfml-window-s-d
 										debug sfml-system-s-d)
 
-target_link_libraries("${PROJECT_NAME}" optimized sfml-graphics-s-d
-										optimized sfml-window-s-d
-										optimized sfml-system-s-d)
+target_link_libraries("${PROJECT_NAME}" optimized sfml-graphics-s
+										optimized sfml-window-s
+										optimized sfml-system-s)
