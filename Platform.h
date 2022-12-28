@@ -41,6 +41,7 @@ public:
     Platform(RenderWindow& window, Ball& ball, float x, float y, float width, float height) : m_window(window), m_ball(ball) {
         setSize(Vector2f(width, height));
         setPosition(x, y);
+        setFillColor(Color::Red);
     }
 
     void update() {
